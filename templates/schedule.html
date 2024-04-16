@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customizable Schedule</title>
+<!--<link rel="stylesheet" type="text/css" href="schedule.css">-->
+<link rel="stylesheet" href="{{ url_for( 'static', filename='schedule.css') }}"/>
+</head>
+<body>
+
+
+  <div class="container">
+    <h1>Customizable Schedule</h1>
+    <form action="/schedule" method="POST" id="schedule-form">
+
+
+      <label for="event">Event:</label>
+      <input type="text" id="event" name="event" placeholder="Enter event name">
+    <br>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" placeholder="Enter location">
+    <br>
+    <label for="date">Date:</label>
+    <input type="text id="date" name="date" placeholder="DD/MM/YYYY">
+    <br>
+    <label for="time">Time:</label>
+      <input type="text" id="time" name="time" placeholder="e.g. 09:00 AM - 10:00 AM">
+
+    <button type="submit">Add Event</button>
+      <!--<button type="button" onclick="addEvent()">Add Event</button>-->
+    </form>
+
+    <table id="schedule-table">
+      <tr>
+        <th>Event No.</th>
+        <th>Event</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Time</th>
+      </tr>
+  {% if rows %}
+    {% for row in rows %}
+    <tr>
+    <td> {{ row[0] }} </td>
+    <td> {{ row[1] }} </td>
+    <td> {{ row[2] }} </td>
+    <td> {{ row[3] }} </td>
+    <td> {{ row[4] }} </td>
+    {% endfor %}
+  {% endif %}
+    </tr>
+
+    </table>
+  </div>
+
+  
+  <div class="container">
+    <ul>
+      <li><a href="/">Return To Main Menu</a></li>
+    </ul>
+  </div>
+</body>
+</html>
