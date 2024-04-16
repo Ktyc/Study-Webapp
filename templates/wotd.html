@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOTD</title>
+<!--<link rel="stylesheet" type="text/css" href="schedule.css">-->
+<link rel="stylesheet" href="{{ url_for( 'static', filename='wotd.css') }}"/>
+</head>
+<body>
+
+		<h1>Work Of The Day</h1>
+
+
+		 <form action="/wotd" method="post">
+			<input type="checkbox" id="item1" name="item" value="Item 1">
+			<label for="item1">Math Tutorial DRV</label><br>
+			<input type="checkbox" id="item2" name="item" value="Item 2">
+			<label for="item2">Quantum Lecture</label><br>
+			<input type="checkbox" id="item3" name="item" value="Item 3">
+			<label for="item3">Computing Mongo practice</label><br>
+			<!--<label for="item3">{{ new }}</label><br>-->
+			
+			<!-- New input field for adding new items -->
+			<label for="new_item">Add New Task:</label>
+			<input type="text" id="new_item" name="new_item" placeholder="Enter new task">
+			<br>
+			
+
+			<input type="submit" value="Add">
+	    </form>
+		<div class="container">
+			<ul>
+			  <li><a href="/">Return To Main Menu</a></li>
+			</ul>
+		</div>
+		
+</body>
+</html>
